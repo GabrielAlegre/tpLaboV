@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
 
     public int keyLigaSeleccionada=207;
     Handler handler;
-
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         handler = new Handler(this);
         traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);
-
-       //HiloConexion hDetalle = new HiloConexion(handler,false);
+        actionBar = super.getSupportActionBar();
+        //HiloConexion hDetalle = new HiloConexion(handler,false);
         //hDetalle.start();
     }
 
@@ -38,14 +38,19 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
         int id = item.getItemId();
         if (id == R.id.serieA) {
             keyLigaSeleccionada = 207;
+            actionBar.setTitle("Serie A - Maximos Goleadores");
         } else if (id == R.id.LaLiga) {
             keyLigaSeleccionada = 302;
+            actionBar.setTitle("LaLiga - Maximos Goleadores");
         } else if (id == R.id.Premier) {
             keyLigaSeleccionada = 152;
+            actionBar.setTitle("Premier - Maximos Goleadores");
         } else if (id == R.id.Mls) {
             keyLigaSeleccionada = 332;
+            actionBar.setTitle("MLS - Maximos Goleadores");
         }else if (id == R.id.Ligue1) {
             keyLigaSeleccionada = 168;
+            actionBar.setTitle("Ligue 1 - Maximos Goleadores");
         }
 
         traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);
@@ -59,9 +64,7 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
         HiloConexion h = new HiloConexion(handler, ruta);
         h.start();
     }
-
-
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
