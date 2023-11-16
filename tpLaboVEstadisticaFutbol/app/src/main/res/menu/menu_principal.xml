@@ -14,14 +14,14 @@
         app:showAsAction="always"></item>
     <item android:id="@+id/op6" android:title="Arg"
         app:showAsAction="always"></item>-->
-    <item android:id="@+id/op1" android:title="Serie A"></item>
+    <item android:id="@+id/serieA" android:title="Serie A"></item>
 
-    <item android:id="@+id/op2" android:title="LaLiga"></item>
+    <item android:id="@+id/LaLiga" android:title="LaLiga"></item>
 
-    <item android:id="@+id/op3" android:title="Premier"></item>
+    <item android:id="@+id/Premier" android:title="Premier"></item>
 
-    <item android:id="@+id/op4" android:title="MLS"></item>
+    <item android:id="@+id/Mls" android:title="MLS"></item>
 
-    <item android:id="@+id/op5" android:title="Ligue 1"></item>
+    <item android:id="@+id/Ligue1" android:title="Ligue 1"></item>
 
 </menu>

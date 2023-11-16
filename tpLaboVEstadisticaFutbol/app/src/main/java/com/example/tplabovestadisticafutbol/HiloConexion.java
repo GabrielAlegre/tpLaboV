@@ -14,19 +14,19 @@ public class HiloConexion extends Thread{
     public static final int DTALLE = 1;
     Handler handler;
     String ruta;
-    boolean buscarGoleadores;
+
     List<Futbolista> listaJugadores;
 
-    public HiloConexion(Handler handler, boolean buscarGoleadores) {
+    public HiloConexion(Handler handler, String ruta) {
         this.handler = handler;
         listaJugadores = new ArrayList<>();
-        this.buscarGoleadores=buscarGoleadores;
+        this.ruta=ruta;
     }
     public void run () {
         ConexionAPI c = new ConexionAPI();
         Message message = new Message();
         if (listaJugadores.isEmpty()) {
-            byte[] rta = c.obtenerInfo("https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId=207&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47");
+            byte[] rta = c.obtenerInfo(this.ruta);
             message.arg1 = GOLEADORES;
             try {
                 // Convierte la cadena JSON en un objeto JSONObject

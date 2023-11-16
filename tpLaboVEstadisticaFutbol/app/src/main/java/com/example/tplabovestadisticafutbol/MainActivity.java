@@ -1,6 +1,7 @@
 package com.example.tplabovestadisticafutbol;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,22 +10,57 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements  Handler.Callback{
     public static List<Futbolista> listaDeJugadores;
     public static AdapterFutbolista adapterFutbolista;
+
+    public int keyLigaSeleccionada=207;
+    Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Handler handler = new Handler(this);
-        HiloConexion h = new HiloConexion(handler, true);
-        h.start();
+        handler = new Handler(this);
+        traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);
+
        //HiloConexion hDetalle = new HiloConexion(handler,false);
         //hDetalle.start();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.serieA) {
+            keyLigaSeleccionada = 207;
+        } else if (id == R.id.LaLiga) {
+            keyLigaSeleccionada = 302;
+        } else if (id == R.id.Premier) {
+            keyLigaSeleccionada = 152;
+        } else if (id == R.id.Mls) {
+            keyLigaSeleccionada = 332;
+        }else if (id == R.id.Ligue1) {
+            keyLigaSeleccionada = 168;
+        }
+
+        traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void traerMaximosGoleadoresSegunLaLiga(int keyLigaSeleccionada) {
+        // CAMBIO LA CATEGORIA DE COMIDA
+        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId="+keyLigaSeleccionada+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
+        //LE PASO AL HILO LOS VALORES
+        HiloConexion h = new HiloConexion(handler, ruta);
+        h.start();
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
