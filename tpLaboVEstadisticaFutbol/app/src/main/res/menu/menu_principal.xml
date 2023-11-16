@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--
+    <item android:id="@+id/op1" android:title="Serie A"
+        app:showAsAction="always"></item>
+    <item android:id="@+id/op2" android:title="LaLiga"
+        app:showAsAction="always"></item>
+    <item android:id="@+id/op3" android:title="Premier"
+        app:showAsAction="always"></item>
+    <item android:id="@+id/op4" android:title="MLS"
+        app:showAsAction="always"></item>
+    <item android:id="@+id/op5" android:title="Ligue 1"
+        app:showAsAction="always"></item>
+    <item android:id="@+id/op6" android:title="Arg"
+        app:showAsAction="always"></item>-->
+    <item android:id="@+id/op1" android:title="Serie A"></item>
+
+    <item android:id="@+id/op2" android:title="LaLiga"></item>
+
+    <item android:id="@+id/op3" android:title="Premier"></item>
+
+    <item android:id="@+id/op4" android:title="MLS"></item>
+
+    <item android:id="@+id/op5" android:title="Ligue 1"></item>
+
+</menu>
