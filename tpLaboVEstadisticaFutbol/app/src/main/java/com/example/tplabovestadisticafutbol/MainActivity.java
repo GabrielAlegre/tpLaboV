@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
         // CAMBIO LA CATEGORIA DE COMIDA
         String ruta = "https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId="+keyLigaSeleccionada+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
         //LE PASO AL HILO LOS VALORES
-        HiloConexion h = new HiloConexion(handler, ruta);
+        HiloConexion h = new HiloConexion(handler, ruta, HiloConexion.MOSTRAR_GOLEADORES);
         h.start();
     }
     
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
 
     @Override
     public boolean handleMessage(@NonNull Message message) {
-        if(message.arg1==HiloConexion.GOLEADORES)
+        if(message.arg1==HiloConexion.MOSTRAR_GOLEADORES)
         {
             listaDeJugadores = (List<Futbolista>) message.obj;
             //Generamos nuestro objeto adapter y le pasamos la lista de usuarios

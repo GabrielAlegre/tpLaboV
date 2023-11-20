@@ -28,7 +28,7 @@ public class ViewHolderFutbolista extends RecyclerView.ViewHolder implements Vie
         int indiceDelJugadorClickeado = super.getAdapterPosition();
         //Futbolista f = MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado);
         Intent i = new Intent(view.getContext(), ActivityVerDetalles.class);
-        i.putExtra("usuarioQueSeModificara", MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado));
+        i.putExtra("jugadorQueSeEligio", MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado));
         /*i.putExtra("keyDelJugador", f.getKeyDelJugador());
         i.putExtra("golesConvertidos", f.getCantDeGolesConvertidos());
         i.putExtra("golesDePenales", f.getGolesDePenales());*/

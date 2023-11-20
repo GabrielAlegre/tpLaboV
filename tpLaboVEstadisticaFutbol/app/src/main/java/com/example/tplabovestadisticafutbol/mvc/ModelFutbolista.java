@@ -17,10 +17,12 @@ public class ModelFutbolista {
     private int tarjetasRojas;
     private double ratingPromedio;
 
+    private int golesDePenales;
+
     public ModelFutbolista() {
     }
 
-    public ModelFutbolista(String nombreApellido, String equipo, String nacionalidad, int edad, int dorsal, int partidosJugados, int golesConvertidos, int asistencias, int pases, int intentosDeGambeta, int faltasCometidas, int tarjetasAmarillas, int tarjetasRojas, double ratingPromedio) {
+    public ModelFutbolista(String nombreApellido, String equipo, String nacionalidad, int edad, int dorsal, int partidosJugados, int golesConvertidos, int asistencias, int pases, int intentosDeGambeta, int faltasCometidas, int tarjetasAmarillas, int tarjetasRojas, double ratingPromedio, int golesDePenales) {
         this.nombreApellido = nombreApellido;
         this.equipo = equipo;
         this.nacionalidad = nacionalidad;
@@ -35,6 +37,7 @@ public class ModelFutbolista {
         this.tarjetasAmarillas = tarjetasAmarillas;
         this.tarjetasRojas = tarjetasRojas;
         this.ratingPromedio = ratingPromedio;
+        this.golesDePenales = golesDePenales;
     }
 
     public String getNombreApellido() {
@@ -147,5 +150,34 @@ public class ModelFutbolista {
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    public int getGolesDePenales() {
+        return golesDePenales;
+    }
+
+    public void setGolesDePenales(int golesDePenales) {
+        this.golesDePenales = golesDePenales;
+    }
+
+    @Override
+    public String toString() {
+        return "ModelFutbolista{" +
+                "nombreApellido='" + nombreApellido + '\'' +
+                ", equipo='" + equipo + '\'' +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                ", edad=" + edad +
+                ", dorsal=" + dorsal +
+                ", partidosJugados=" + partidosJugados +
+                ", golesConvertidos=" + golesConvertidos +
+                ", asistencias=" + asistencias +
+                ", pases=" + pases +
+                ", intentosDeGambeta=" + intentosDeGambeta +
+                ", faltasCometidas=" + faltasCometidas +
+                ", tarjetasAmarillas=" + tarjetasAmarillas +
+                ", tarjetasRojas=" + tarjetasRojas +
+                ", ratingPromedio=" + ratingPromedio +
+                ", golesDePenales=" + golesDePenales +
+                '}';
     }
 }

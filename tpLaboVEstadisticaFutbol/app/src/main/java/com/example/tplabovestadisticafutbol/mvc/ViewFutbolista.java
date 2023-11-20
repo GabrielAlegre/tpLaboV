@@ -1,10 +1,10 @@
 package com.example.tplabovestadisticafutbol.mvc;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tplabovestadisticafutbol.ActivityVerDetalles;
 import com.example.tplabovestadisticafutbol.R;
-
 public class ViewFutbolista {
     ActivityVerDetalles ac;
     private TextView tvNombreJugador;
@@ -21,11 +21,19 @@ public class ViewFutbolista {
     private TextView tvRatingProm;
     private TextView tvEquipo;
     private TextView tvNacionalidad;
+    private ControllerFutbolista controllerFut;
 
+    ImageView imgJugador;
     private ModelFutbolista futbolistaModel;
     public ViewFutbolista(ActivityVerDetalles ac, ModelFutbolista futbolistaModel){
         this.ac=ac;
         this.futbolistaModel=futbolistaModel;
+    }
+
+    public void setControlador(ControllerFutbolista controladorFut)
+    {
+        this.controllerFut=controladorFut;
+        this.cargarElementos();
     }
     public void cargarElementos(){
         this.tvNombreJugador = this.ac.findViewById(R.id.tvNombreJugador);
@@ -42,6 +50,8 @@ public class ViewFutbolista {
         this.tvRatingProm = this.ac.findViewById(R.id.tvRatingProm);
         this.tvEquipo = this.ac.findViewById(R.id.tvEquipo);  // Nuevo TextView para el equipo
         this.tvNacionalidad = this.ac.findViewById(R.id.tvNacionalidad);
+        this.imgJugador=this.ac.findViewById(R.id.ivImgJugador);
+        //this.controllerFut.recuperarDatosDelFutbolistaClickeado();
     }
 
     public void llenarModelo(){
@@ -61,7 +71,6 @@ public class ViewFutbolista {
         this.futbolistaModel.setRatingPromedio(Double.parseDouble(this.tvRatingProm.getText().toString()));
         this.futbolistaModel.setTarjetasRojas(Integer.parseInt(this.tvRojas.getText().toString()));
         this.futbolistaModel.setRatingPromedio(Double.parseDouble(this.tvRatingProm.getText().toString()));
-
     }
 
     public void mostrarModel(){
