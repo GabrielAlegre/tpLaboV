@@ -16,9 +16,14 @@ public class ModelFutbolista {
     private int tarjetasAmarillas;
     private int tarjetasRojas;
     private double ratingPromedio;
-
     private int golesDePenales;
+    private String foto;
 
+    private int pasesAcertados;
+
+    private int gambetasExitosas;
+
+    private int minutosJugados;
     public ModelFutbolista() {
     }
 
@@ -158,6 +163,39 @@ public class ModelFutbolista {
 
     public void setGolesDePenales(int golesDePenales) {
         this.golesDePenales = golesDePenales;
+    }
+
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getPasesAcertados() {
+        return pasesAcertados;
+    }
+
+    public void setPasesAcertados(int pasesAcertados) {
+        this.pasesAcertados = pasesAcertados;
+    }
+
+    public int getGambetasExitosas() {
+        return gambetasExitosas;
+    }
+
+    public void setGambetasExitosas(int gambetasExitosas) {
+        this.gambetasExitosas = gambetasExitosas;
+    }
+
+    public int getMinutosJugados() {
+        return minutosJugados;
+    }
+
+    public void setMinutosJugados(int minutosJugados) {
+        this.minutosJugados = minutosJugados;
     }
 
     @Override

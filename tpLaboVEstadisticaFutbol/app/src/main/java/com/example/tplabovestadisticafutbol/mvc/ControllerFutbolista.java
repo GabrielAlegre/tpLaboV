@@ -12,6 +12,8 @@ import com.example.tplabovestadisticafutbol.ActivityVerDetalles;
 import com.example.tplabovestadisticafutbol.Futbolista;
 import com.example.tplabovestadisticafutbol.HiloConexion;
 
+import java.text.DecimalFormat;
+
 public class ControllerFutbolista implements View.OnClickListener{
     private ViewFutbolista viewFut;
     private ModelFutbolista modelFut;
@@ -43,10 +45,33 @@ public class ControllerFutbolista implements View.OnClickListener{
         this.modelFut.setTarjetasAmarillas(futbolistaModel.getTarjetasAmarillas());
         this.modelFut.setTarjetasRojas(futbolistaModel.getTarjetasRojas());
         this.modelFut.setRatingPromedio(futbolistaModel.getRatingPromedio());
+        this.modelFut.setFoto(futbolistaModel.getFoto());
+        this.modelFut.setMinutosJugados(futbolistaModel.getMinutosJugados());
+        this.modelFut.setGolesDePenales(futbolistaModel.getGolesDePenales());
+        this.modelFut.setPasesAcertados(futbolistaModel.getPasesAcertados());
+        this.modelFut.setGambetasExitosas(futbolistaModel.getGambetasExitosas());
         Log.d("recuperarDatosDeltbolis", futbolistaModel.toString());
         this.viewFut.mostrarModel();
-
-
     }
 
+    public static String calcularPorcentajeMinutosJugados(int minJug, int partJug)
+    {
+        int minEnJugo=partJug*90;
+        double rta = (double) minJug/minEnJugo;
+        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        return minJug+ " ("+porcentaje+"%)";
+    }
+
+    public static String calcularPorcentajePasesCorrectos(int pasesAcertados, int pasesDados)
+    {
+        Double rta = (double) pasesAcertados/pasesDados;
+        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        return pasesAcertados+ " ("+porcentaje+"%)";
+    }
+    public static String calcularPorcentajeGambetasCorrectos(int gambetasExitosas, int gambetasIntentadas)
+    {
+        Double rta = (double) gambetasExitosas/gambetasIntentadas;
+        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        return gambetasExitosas+ " ("+porcentaje+"%)";
+    }
 }

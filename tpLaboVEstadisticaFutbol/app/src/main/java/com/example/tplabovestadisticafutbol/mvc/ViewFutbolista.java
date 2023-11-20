@@ -5,6 +5,8 @@ import android.widget.TextView;
 
 import com.example.tplabovestadisticafutbol.ActivityVerDetalles;
 import com.example.tplabovestadisticafutbol.R;
+import com.squareup.picasso.Picasso;
+
 public class ViewFutbolista {
     ActivityVerDetalles ac;
     private TextView tvNombreJugador;
@@ -21,6 +23,10 @@ public class ViewFutbolista {
     private TextView tvRatingProm;
     private TextView tvEquipo;
     private TextView tvNacionalidad;
+    private TextView tvMinutosJugados;
+    private TextView tvGolesDePenal;
+    private TextView tvPasesCorrectos;
+    private TextView tvGambetasExitosas;
     private ControllerFutbolista controllerFut;
 
     ImageView imgJugador;
@@ -51,6 +57,10 @@ public class ViewFutbolista {
         this.tvEquipo = this.ac.findViewById(R.id.tvEquipo);  // Nuevo TextView para el equipo
         this.tvNacionalidad = this.ac.findViewById(R.id.tvNacionalidad);
         this.imgJugador=this.ac.findViewById(R.id.ivImgJugador);
+        this.tvMinutosJugados=this.ac.findViewById(R.id.tvMinutosJugados);
+        this.tvGolesDePenal=this.ac.findViewById(R.id.tvGolesDePenal);
+        this.tvPasesCorrectos=this.ac.findViewById(R.id.tvPasesCorrectos);
+        this.tvGambetasExitosas=this.ac.findViewById(R.id.tvGambetasExitosas);
         //this.controllerFut.recuperarDatosDelFutbolistaClickeado();
     }
 
@@ -88,5 +98,10 @@ public class ViewFutbolista {
         this.tvAmarillas.setText(String.valueOf(this.futbolistaModel.getTarjetasAmarillas()));
         this.tvRojas.setText(String.valueOf(this.futbolistaModel.getTarjetasRojas()));
         this.tvRatingProm.setText(String.valueOf(this.futbolistaModel.getRatingPromedio()));
+        Picasso.get().load(this.futbolistaModel.getFoto()).into(this.imgJugador);
+        this.tvMinutosJugados.setText(ControllerFutbolista.calcularPorcentajeMinutosJugados(futbolistaModel.getMinutosJugados(), futbolistaModel.getPartidosJugados()));
+        this.tvGolesDePenal.setText(String.valueOf(this.futbolistaModel.getGolesDePenales()));
+        this.tvPasesCorrectos.setText(ControllerFutbolista.calcularPorcentajePasesCorrectos(this.futbolistaModel.getPasesAcertados(), this.futbolistaModel.getPases()));
+        this.tvGambetasExitosas.setText(ControllerFutbolista.calcularPorcentajeGambetasCorrectos(this.futbolistaModel.getGambetasExitosas(), this.futbolistaModel.getIntentosDeGambeta()));
     }
 }

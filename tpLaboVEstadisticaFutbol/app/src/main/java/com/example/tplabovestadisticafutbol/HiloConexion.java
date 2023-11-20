@@ -86,7 +86,11 @@ public class HiloConexion extends Thread{
                     modelFutbolista.setFaltasCometidas(Integer.parseInt(playerData.getString("player_fouls_commited")));
                     modelFutbolista.setTarjetasAmarillas(Integer.parseInt(playerData.getString("player_yellow_cards")));
                     modelFutbolista.setTarjetasRojas(Integer.parseInt(playerData.getString("player_red_cards")));
+                    modelFutbolista.setGambetasExitosas(Integer.parseInt(playerData.getString("player_dribble_succ")));
+                    modelFutbolista.setMinutosJugados(Integer.parseInt(playerData.getString("player_minutes")));
+                    modelFutbolista.setPasesAcertados(Integer.parseInt(playerData.getString("player_passes_accuracy")));
                     modelFutbolista.setRatingPromedio(Double.parseDouble(playerData.getString("player_rating")));
+                    modelFutbolista.setFoto(playerData.optString("player_image", ""));
 
                     Log.d("viendoooooooo desde hlo", modelFutbolista.toString());
                 } catch (Exception e) {
