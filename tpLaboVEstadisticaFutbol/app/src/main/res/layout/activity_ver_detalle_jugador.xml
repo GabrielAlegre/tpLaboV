@@ -37,7 +37,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Equipo: Genova"/>
+            android:text="Equipo:"/>
+
+        <TextView
+            android:id="@+id/tvEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Genova"/>
 
         <ImageView
 
@@ -62,7 +71,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Nacionalidad: Islandia"/>
+            android:text="Nacionalidad:"/>
+
+        <TextView
+            android:id="@+id/tvNacionalidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Islandia"/>
 
         <ImageView
 
@@ -97,7 +115,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Años: 26"/>/>
+            android:text="Años:"/>
+        <TextView
+            android:id="@+id/tvEdad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="26"/>
     </LinearLayout>
 
 
@@ -123,7 +149,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Dorsal: 11"/>
+            android:text="Dorsal:"/>
+        <TextView
+            android:id="@+id/tvDorsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="11"/>
     </LinearLayout>
 
 
@@ -131,9 +165,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -149,16 +181,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Partidos jugados: 10 - 897 MIN (99%)"/>
+            android:text="Partidos jugados:"/>
+        <TextView
+            android:id="@+id/tvPartidosJugados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text=" 10 - 897 MIN (99%)"/>
     </LinearLayout>
 
     <!-- GOLES-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -174,7 +212,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Goles covertidos: 5 (de penal 1)"/>
+            android:text="Goles covertidos:"/>
+
+        <TextView
+            android:id="@+id/tvGoles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="5 (de penal 1)"/>
+
     </LinearLayout>
 
     <!-- ASISTENCIAS-->
@@ -182,9 +230,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -200,16 +246,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Asisencias: 0"/>
+            android:text="Asisencias:"/>
+
+        <TextView
+            android:id="@+id/tvAsistencias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="0"/>
     </LinearLayout>
 
     <!-- PASES-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -225,7 +278,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Pases: 55 - Pases correctos 43 (78%)"/>/>
+            android:text="Pases:"/>
+
+        <TextView
+            android:id="@+id/tvPases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="55 - Pases correctos 43 (78%)"/>
     </LinearLayout>
 
     <!-- GAMBETAS-->
@@ -233,12 +295,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
-
             android:layout_width="25dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
@@ -251,7 +310,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Intento gambetas: 7 - Exitosas 4 (57%)"/>
+            android:text="Intento gambetas:"/>
+
+        <TextView
+            android:id="@+id/tvGambetas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="7 - Exitosas 4 (57%)"/>
     </LinearLayout>
 
     <!-- FALTAS-->
@@ -259,9 +327,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -277,19 +343,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Faltas cometidas: 1"/>
+            android:text="Faltas cometidas:"/>
+
+        <TextView
+            android:id="@+id/tvFaltas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="1"/>
     </LinearLayout>
-
-
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -305,17 +375,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Tarjetas Amarillas: 1"/>
+            android:text="Tarjetas Amarillas:"/>
 
+        <TextView
+            android:id="@+id/tvAmarillas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="1"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -331,15 +407,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Tarjetas Rojas: 0"/>
+            android:text="Tarjetas Rojas:"/>
+        <TextView
+            android:id="@+id/tvRojas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="0"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <ImageView
 
@@ -355,7 +437,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Rating promedio: 7.90"/>
+            android:text="Rating promedio:"/>
+
+        <TextView
+            android:id="@+id/tvRatingProm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="7.90"/>
     </LinearLayout>
 
 </LinearLayout>

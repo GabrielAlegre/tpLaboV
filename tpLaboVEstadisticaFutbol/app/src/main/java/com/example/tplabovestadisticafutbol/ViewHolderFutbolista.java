@@ -25,8 +25,15 @@ public class ViewHolderFutbolista extends RecyclerView.ViewHolder implements Vie
 
     @Override
     public void onClick(View view) {
-        Log.d("Ver detalle", "onClick: Proxima funcionabilidad");
+        int indiceDelJugadorClickeado = super.getAdapterPosition();
+        //Futbolista f = MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado);
         Intent i = new Intent(view.getContext(), ActivityVerDetalles.class);
+        i.putExtra("usuarioQueSeModificara", MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado));
+        /*i.putExtra("keyDelJugador", f.getKeyDelJugador());
+        i.putExtra("golesConvertidos", f.getCantDeGolesConvertidos());
+        i.putExtra("golesDePenales", f.getGolesDePenales());*/
+        Log.d("Ver detalleeeeeeeeeee", "onClick: Proxima funcionabilidad"+ MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado).toString());
+
         view.getContext().startActivity(i);
     }
 }

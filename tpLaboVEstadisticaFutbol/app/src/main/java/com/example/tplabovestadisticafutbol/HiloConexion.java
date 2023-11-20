@@ -43,7 +43,8 @@ public class HiloConexion extends Thread{
                     listaJugadores.add(new Futbolista(playerData.getLong("player_key"),
                             playerData.getString("team_name"),
                             playerData.getInt("goals"),
-                            playerData.getString("player_name")));
+                            playerData.getString("player_name"),
+                            playerData.getInt("penalty_goals")));
                 }
                 /*
                 for (Jugador jug:listaJugadores)
