@@ -30,7 +30,8 @@ public class AdapterFutbolista extends RecyclerView.Adapter<ViewHolderFutbolista
         Futbolista jugador = this.listaDeFutbolistas.get(position);
         holder.tvNombreFutbolista.setText(jugador.getNombreDelJugador());
         holder.tvEquipoDondeJuega.setText(jugador.getEquipoDondeJuega());
-        holder.tvCantGolesConvertidos.setText("Goles Convertidos: "+ jugador.getCantDeGolesConvertidos());
+        holder.tvCantGolesConvertidos.setText(String.valueOf(jugador.getCantDeGolesConvertidos()));
+
     }
 
     @Override

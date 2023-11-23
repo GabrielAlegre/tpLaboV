@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Top scorers:</string>
+    <string name="tvEquipo">Equipment:</string>
+    <string name="tvNacionalidad">Nationality:</string>
+    <string name="tvAños">Years:</string>
+    <string name="tvDorsal">Dorsal:</string>
+    <string name="tvEncuentros">Matches:</string>
+    <string name="tvGolesConvertidos">Converted goals:</string>
+    <string name="tvPenal">- Penalty:</string>
+    <string name="tvAsistencias">Assistance:</string>
+    <string name="tvPases">Passes:</string>
+    <string name="tvGambeta">Dribbles:</string>
+    <string name="tvFaltas">Faults:</string>
+    <string name="tvTarAma">Yellow cards:</string>
+    <string name="tvTarRojas">Red cards:</string>
+    <string name="tvPuntaje">Average rating:</string>
+    <string name="tvExito">- Good:</string>
+    <string name="labelTitulo"> Serie A - Top Scorers</string>
+    <string name="labelTituloDetalle">Player details</string>
+</resources>

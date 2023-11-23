@@ -39,19 +39,19 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
         int id = item.getItemId();
         if (id == R.id.serieA) {
             keyLigaSeleccionada = 207;
-            actionBar.setTitle("Serie A - Maximos Goleadores");
+            actionBar.setTitle("Serie A - "+getString(R.string.app_name));
         } else if (id == R.id.LaLiga) {
             keyLigaSeleccionada = 302;
-            actionBar.setTitle("LaLiga - Maximos Goleadores");
+            actionBar.setTitle("LaLiga - "+getString(R.string.app_name));
         } else if (id == R.id.Premier) {
             keyLigaSeleccionada = 152;
-            actionBar.setTitle("Premier - Maximos Goleadores");
+            actionBar.setTitle("Premier - "+getString(R.string.app_name));
         } else if (id == R.id.Mls) {
             keyLigaSeleccionada = 332;
-            actionBar.setTitle("MLS - Maximos Goleadores");
+            actionBar.setTitle("MLS - "+getString(R.string.app_name));
         }else if (id == R.id.Ligue1) {
             keyLigaSeleccionada = 168;
-            actionBar.setTitle("Ligue 1 - Maximos Goleadores");
+            actionBar.setTitle("Ligue 1 - "+getString(R.string.app_name));
         }
 
         traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);

@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Equipo:"/>
+            android:text="@string/tvEquipo"/>
 
         <TextView
             android:id="@+id/tvEquipo"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Nacionalidad:"/>
+            android:text="@string/tvNacionalidad"/>
 
         <TextView
             android:id="@+id/tvNacionalidad"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Años:"/>
+            android:text="@string/tvAños"/>
         <TextView
             android:id="@+id/tvEdad"
             android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Dorsal:"/>
+            android:text="@string/tvDorsal"/>
         <TextView
             android:id="@+id/tvDorsal"
             android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Encuentros:"/>
+            android:text="@string/tvEncuentros"/>
         <TextView
             android:id="@+id/tvPartidosJugados"
             android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginLeft="5dp"
-            android:text=" - MIN"/>
+            android:text="- MIN"/>
 
         <TextView
             android:id="@+id/tvMinutosJugados"
@@ -229,7 +229,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Goles covertidos:"/>
+            android:text="@string/tvGolesConvertidos"/>
 
         <TextView
             android:id="@+id/tvGoles"
@@ -243,9 +243,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text=" - de penal:"/>
+            android:text="@string/tvPenal"/>
 
         <TextView
             android:id="@+id/tvGolesDePenal"
@@ -281,7 +282,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Asisencias:"/>
+            android:text="@string/tvAsistencias"/>
 
         <TextView
             android:id="@+id/tvAsistencias"
@@ -313,7 +314,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Pases:"/>
+            android:text="@string/tvPases"/>
 
         <TextView
             android:id="@+id/tvPases"
@@ -330,7 +331,7 @@
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginLeft="5dp"
-            android:text=" - Exito:"/>
+            android:text="@string/tvExito"/>
 
         <TextView
             android:id="@+id/tvPasesCorrectos"
@@ -361,7 +362,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Gambetas:"
+            android:text="@string/tvGambeta"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -378,7 +379,7 @@
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginLeft="5dp"
-            android:text="- Exito:"/>
+            android:text="@string/tvExito"/>
 
         <TextView
             android:id="@+id/tvGambetasExitosas"
@@ -411,7 +412,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Faltas cometidas:"/>
+            android:text="@string/tvFaltas"/>
 
         <TextView
             android:id="@+id/tvFaltas"
@@ -443,7 +444,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Tarjetas Amarillas:"/>
+            android:text="@string/tvTarAma"/>
 
         <TextView
             android:id="@+id/tvAmarillas"
@@ -475,7 +476,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Tarjetas Rojas:"/>
+            android:text="@string/tvTarRojas"/>
         <TextView
             android:id="@+id/tvRojas"
             android:layout_width="wrap_content"
@@ -505,7 +506,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Rating promedio:"/>
+            android:text="@string/tvPuntaje"/>
 
         <TextView
             android:id="@+id/tvRatingProm"

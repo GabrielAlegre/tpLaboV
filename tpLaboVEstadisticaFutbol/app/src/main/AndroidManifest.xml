@@ -9,7 +9,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/labelTitulo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TpLaboVEstadisticaFutbol"
@@ -17,12 +17,12 @@
         <activity
             android:name=".ActivityVerDetalles"
             android:exported="false"
-            android:label="Detalle del Jugador"
+            android:label="@string/labelTituloDetalle"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="@string/labelTitulo"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
             >
             <intent-filter>
