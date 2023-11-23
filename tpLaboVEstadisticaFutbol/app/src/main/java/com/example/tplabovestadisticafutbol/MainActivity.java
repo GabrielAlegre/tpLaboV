@@ -3,6 +3,7 @@ package com.example.tplabovestadisticafutbol;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements  Handler.Callback{
+public class MainActivity extends AppCompatActivity implements  Handler.Callback, SearchView.OnQueryTextListener{
     public static List<Futbolista> listaDeJugadores;
     public static AdapterFutbolista adapterFutbolista;
 
@@ -68,12 +69,17 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.svBuscar);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(this);
         return true;
     }
 
     @Override
     public boolean handleMessage(@NonNull Message message) {
-        if(message.arg1==HiloConexion.MOSTRAR_GOLEADORES)
+        if(message.arg1==HiloConexion.MOSTRAR_GOLEADORES || message.arg1==HiloConexion.MOSTRAR_JUGADORES_SV)
         {
             listaDeJugadores = (List<Futbolista>) message.obj;
             //Generamos nuestro objeto adapter y le pasamos la lista de usuarios
@@ -88,8 +94,27 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
             //Cuando el RecyclerView ya tiene su adapter le tenemos que decir de que manera tiene que representar estos items
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(linearLayoutManager);
+            adapterFutbolista.notifyDataSetChanged();
         }
 
+        return false;
+    }
+
+
+    //Para Search View
+    @Override
+    public boolean onQueryTextSubmit(String nombreIngresado) {
+        // CAMBIO LA CATEGORIA DE COMIDA
+        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Players&playerName="+nombreIngresado+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
+        //LE PASO AL HILO LOS VALORES
+        HiloConexion h = new HiloConexion(handler, ruta, HiloConexion.MOSTRAR_JUGADORES_SV);
+        h.start();
+        return false;
+    }
+
+    //Para Search View
+    @Override
+    public boolean onQueryTextChange(String newText) {
         return false;
     }
 }

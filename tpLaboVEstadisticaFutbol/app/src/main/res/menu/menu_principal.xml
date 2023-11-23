@@ -14,6 +14,11 @@
         app:showAsAction="always"></item>
     <item android:id="@+id/op6" android:title="Arg"
         app:showAsAction="always"></item>-->
+    <item android:id="@+id/svBuscar"
+        android:title="Buscar"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
     <item android:id="@+id/serieA" android:title="Serie A"></item>
 
     <item android:id="@+id/LaLiga" android:title="LaLiga"></item>

@@ -56,22 +56,39 @@ public class ControllerFutbolista implements View.OnClickListener{
 
     public static String calcularPorcentajeMinutosJugados(int minJug, int partJug)
     {
-        int minEnJugo=partJug*90;
-        double rta = (double) minJug/minEnJugo;
-        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        String porcentaje = "0";
+        if(minJug != 0 && partJug !=0)
+        {
+            int minEnJugo=partJug*90;
+            double rta = (double) minJug/minEnJugo;
+            porcentaje = new DecimalFormat("#.##").format(rta*100);
+        }
+
         return minJug+ " ("+porcentaje+"%)";
+
     }
 
     public static String calcularPorcentajePasesCorrectos(int pasesAcertados, int pasesDados)
     {
-        Double rta = (double) pasesAcertados/pasesDados;
-        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        String porcentaje = "0";
+        if(pasesAcertados!=0 && pasesDados !=0)
+        {
+            Double rta = (double) pasesAcertados/pasesDados;
+            porcentaje = new DecimalFormat("#.##").format(rta*100);
+            return pasesAcertados+ " ("+porcentaje+"%)";
+        }
+
         return pasesAcertados+ " ("+porcentaje+"%)";
     }
     public static String calcularPorcentajeGambetasCorrectos(int gambetasExitosas, int gambetasIntentadas)
     {
-        Double rta = (double) gambetasExitosas/gambetasIntentadas;
-        String porcentaje = new DecimalFormat("#.##").format(rta*100);
+        String porcentaje = "0";
+        if(gambetasExitosas!=0 && gambetasIntentadas!=0)
+        {
+            Double rta = (double) gambetasExitosas/gambetasIntentadas;
+            porcentaje = new DecimalFormat("#.##").format(rta*100);
+        }
+
         return gambetasExitosas+ " ("+porcentaje+"%)";
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class HiloConexion extends Thread{
     public static final int MOSTRAR_GOLEADORES = 10;
     public static final int VER_DETALLE = 1;
+    public static final int MOSTRAR_JUGADORES_SV = 100;
     Handler handler;
     String ruta;
 
@@ -58,6 +59,33 @@ public class HiloConexion extends Thread{
                 }
                 message.obj = listaJugadores;
             }
+        }else if(this.queHacer==HiloConexion.MOSTRAR_JUGADORES_SV) {
+            if (listaJugadores.isEmpty()) {
+                byte[] rta = c.obtenerInfo(this.ruta);
+                message.arg1 = MOSTRAR_JUGADORES_SV;
+                try {
+                    // Convierte la cadena JSON en un objeto JSONObject
+                    JSONObject jsonObject = new JSONObject(new String(rta));
+
+                    // Obtén el array "result" del objeto JSON
+                    JSONArray resultArray = jsonObject.getJSONArray("result");
+
+                    // Ahora puedes acceder a los datos dentro del arreglo "result"
+                    for (int i = 0; i < resultArray.length(); i++) {
+                        JSONObject playerData = resultArray.getJSONObject(i);
+
+                        // Accede a los campos que necesites, por ejemplo:
+                        listaJugadores.add(new Futbolista(playerData.getLong("player_key"),
+                                playerData.getString("team_name"),
+                                playerData.getInt("player_goals"),
+                                playerData.getString("player_name"),
+                                0));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                message.obj = listaJugadores;
+            }
         }
 
         if(this.queHacer==HiloConexion.VER_DETALLE) {
@@ -81,16 +109,16 @@ public class HiloConexion extends Thread{
                     modelFutbolista.setDorsal(Integer.parseInt(playerData.getString("player_number")));
                     modelFutbolista.setPartidosJugados(Integer.parseInt(playerData.getString("player_match_played")));
                     modelFutbolista.setAsistencias(Integer.parseInt(playerData.getString("player_assists")));
-                    modelFutbolista.setPases(Integer.parseInt(playerData.getString("player_passes")));
-                    modelFutbolista.setIntentosDeGambeta(Integer.parseInt(playerData.getString("player_dribble_attempts")));
-                    modelFutbolista.setFaltasCometidas(Integer.parseInt(playerData.getString("player_fouls_commited")));
-                    modelFutbolista.setTarjetasAmarillas(Integer.parseInt(playerData.getString("player_yellow_cards")));
-                    modelFutbolista.setTarjetasRojas(Integer.parseInt(playerData.getString("player_red_cards")));
-                    modelFutbolista.setGambetasExitosas(Integer.parseInt(playerData.getString("player_dribble_succ")));
-                    modelFutbolista.setMinutosJugados(Integer.parseInt(playerData.getString("player_minutes")));
-                    modelFutbolista.setPasesAcertados(Integer.parseInt(playerData.getString("player_passes_accuracy")));
-                    modelFutbolista.setRatingPromedio(Double.parseDouble(playerData.getString("player_rating")));
-                    modelFutbolista.setFoto(playerData.optString("player_image", ""));
+                    modelFutbolista.setPases(Integer.parseInt(verificarQueNoLlegueVacio(playerData.optString("player_passes", "0"))));
+                    modelFutbolista.setIntentosDeGambeta(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_dribble_attempts"))));
+                    modelFutbolista.setFaltasCometidas(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_fouls_commited"))));
+                    modelFutbolista.setTarjetasAmarillas(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_yellow_cards"))));
+                    modelFutbolista.setTarjetasRojas(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_red_cards"))));
+                    modelFutbolista.setGambetasExitosas(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_dribble_succ"))));
+                    modelFutbolista.setMinutosJugados(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_minutes"))));
+                    modelFutbolista.setPasesAcertados(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_passes_accuracy"))));
+                    modelFutbolista.setRatingPromedio(Double.parseDouble(verificarQueNoLlegueVacio(playerData.getString("player_rating"))));
+                    modelFutbolista.setFoto(verificarQueNoLlegueVacio(playerData.optString("player_image", "/drawable/hombre.png")));
 
                     Log.d("viendoooooooo desde hlo", modelFutbolista.toString());
                 } catch (Exception e) {
@@ -101,5 +129,12 @@ public class HiloConexion extends Thread{
         }
         handler.sendMessage(message);
     }
+
+
+    private String verificarQueNoLlegueVacio(String atributoValor)
+    {
+        return  atributoValor.isEmpty()?"0":atributoValor;
+    }
+
 
 }
