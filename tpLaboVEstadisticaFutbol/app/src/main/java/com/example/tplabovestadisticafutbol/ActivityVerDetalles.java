@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,12 +29,17 @@ public class ActivityVerDetalles extends AppCompatActivity implements Handler.Ca
         ActionBar actionBar = super.getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        SharedPreferences sp = getSharedPreferences("Confing", Context.MODE_PRIVATE);
+
         Bundle bundle = this.getIntent().getExtras();
         jugadorParaVerDetalle = (Futbolista) bundle.getSerializable("jugadorQueSeEligio");
         Handler handler = new Handler(this);
-        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Players&playerId="+jugadorParaVerDetalle.getKeyDelJugador()+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
+
+        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Players&playerId="+jugadorParaVerDetalle.getKeyDelJugador()+"&APIkey="+sp.getString("keyApi", "-1");;
         HiloConexion h = new HiloConexion(handler, ruta, HiloConexion.VER_DETALLE);
         h.start();
+
+
         //Modelo
         futbolistaModel = new ModelFutbolista();
         //View
@@ -55,10 +62,7 @@ public class ActivityVerDetalles extends AppCompatActivity implements Handler.Ca
     public boolean handleMessage(@NonNull Message message) {
         if(message.arg1==HiloConexion.VER_DETALLE)
         {
-
             this.futbolistaModel= (ModelFutbolista) message.obj;
-            Log.d("viendoooooooo", this.futbolistaModel.toString());
-
             futbolistaController.recuperarDatosDelFutbolistaClickeado(this.futbolistaModel);
         }
         return false;

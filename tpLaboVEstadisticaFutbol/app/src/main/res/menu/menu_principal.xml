@@ -28,5 +28,4 @@
     <item android:id="@+id/Mls" android:title="MLS"></item>
 
     <item android:id="@+id/Ligue1" android:title="Ligue 1"></item>
-
 </menu>

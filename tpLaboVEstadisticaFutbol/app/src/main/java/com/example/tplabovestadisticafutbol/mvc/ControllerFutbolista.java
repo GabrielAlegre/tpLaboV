@@ -50,7 +50,6 @@ public class ControllerFutbolista implements View.OnClickListener{
         this.modelFut.setGolesDePenales(futbolistaModel.getGolesDePenales());
         this.modelFut.setPasesAcertados(futbolistaModel.getPasesAcertados());
         this.modelFut.setGambetasExitosas(futbolistaModel.getGambetasExitosas());
-        Log.d("recuperarDatosDeltbolis", futbolistaModel.toString());
         this.viewFut.mostrarModel();
     }
 

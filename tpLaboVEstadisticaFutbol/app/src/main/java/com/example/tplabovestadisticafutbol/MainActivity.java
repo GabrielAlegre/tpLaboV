@@ -7,6 +7,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
         handler = new Handler(this);
         traerMaximosGoleadoresSegunLaLiga(keyLigaSeleccionada);
         actionBar = super.getSupportActionBar();
-        //HiloConexion hDetalle = new HiloConexion(handler,false);
-        //hDetalle.start();
     }
 
     @Override
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
     }
 
     private void traerMaximosGoleadoresSegunLaLiga(int keyLigaSeleccionada) {
-        // CAMBIO LA CATEGORIA DE COMIDA
-        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId="+keyLigaSeleccionada+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
-        //LE PASO AL HILO LOS VALORES
+        setearKeyApi();
+        SharedPreferences sp = getSharedPreferences("Confing", Context.MODE_PRIVATE);
+        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId="+keyLigaSeleccionada+"&APIkey="+sp.getString("keyApi", "-1");
         HiloConexion h = new HiloConexion(handler, ruta, HiloConexion.MOSTRAR_GOLEADORES);
         h.start();
     }
@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
             recyclerView.setLayoutManager(linearLayoutManager);
             adapterFutbolista.notifyDataSetChanged();
         }
-
         return false;
     }
 
@@ -104,9 +103,8 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
     //Para Search View
     @Override
     public boolean onQueryTextSubmit(String nombreIngresado) {
-        // CAMBIO LA CATEGORIA DE COMIDA
-        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Players&playerName="+nombreIngresado+"&APIkey=f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47";
-        //LE PASO AL HILO LOS VALORES
+        SharedPreferences sp = getSharedPreferences("Confing", Context.MODE_PRIVATE);
+        String ruta = "https://apiv2.allsportsapi.com/football/?&met=Players&playerName="+nombreIngresado+"&APIkey="+sp.getString("keyApi", "-1");
         HiloConexion h = new HiloConexion(handler, ruta, HiloConexion.MOSTRAR_JUGADORES_SV);
         h.start();
         return false;
@@ -116,5 +114,13 @@ public class MainActivity extends AppCompatActivity implements  Handler.Callback
     @Override
     public boolean onQueryTextChange(String newText) {
         return false;
+    }
+
+    public void setearKeyApi()
+    {
+        SharedPreferences sp = getSharedPreferences("Confing", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("keyApi", "f9f23b7d28dadcf3a99d5c2fb69f62d2fb40ac61a1bc8f007dd0300ab09bea47");
+        editor.commit();
     }
 }

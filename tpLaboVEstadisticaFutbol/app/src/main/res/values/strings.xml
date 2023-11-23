@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Serie A - Maximos Goleadores</string>
+    <string name="tvEquipo">Equipo</string>
+    <string name="tvNacionalidad">Nacionalidad</string>
+    <string name="tvAños">Años</string>
+    <string name="tvDorsal">Dorsal</string>
+    <string name="tvEncuentros">Encuentros</string>
+    <string name="tvGolesConvertidos">Goles Convertidos</string>
+    <string name="tvPenal">De penal</string>
+    <string name="tvAsistencias">Asistencias</string>
+    <string name="tvPases">Pases</string>
+    <string name="tvGambeta">Gambetas</string>
+    <string name="tvFaltas">Faltas cometidad</string>
+    <string name="tvTarAma">Tarjetas Amatillas</string>
+    <string name="tvTarRojas">Tarjetas Rojas</string>
+    <string name="tvPuntaje">Rating promedio</string>
+    <string name="tvExito">Exito</string>
+
+
 </resources>

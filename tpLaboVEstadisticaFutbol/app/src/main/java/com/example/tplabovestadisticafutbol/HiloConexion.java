@@ -1,4 +1,6 @@
 package com.example.tplabovestadisticafutbol;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -21,7 +23,6 @@ public class HiloConexion extends Thread{
     int queHacer;
     ModelFutbolista modelFutbolista;
     List<Futbolista> listaJugadores;
-
     public HiloConexion(Handler handler, String ruta, int queHacer) {
         this.handler = handler;
         this.listaJugadores = new ArrayList<>();
@@ -30,6 +31,7 @@ public class HiloConexion extends Thread{
 
     }
     public void run () {
+
         ConexionAPI c = new ConexionAPI();
         Message message = new Message();
         if(this.queHacer==HiloConexion.MOSTRAR_GOLEADORES) {
@@ -37,17 +39,13 @@ public class HiloConexion extends Thread{
                 byte[] rta = c.obtenerInfo(this.ruta);
                 message.arg1 = MOSTRAR_GOLEADORES;
                 try {
-                    // Convierte la cadena JSON en un objeto JSONObject
                     JSONObject jsonObject = new JSONObject(new String(rta));
 
-                    // Obtén el array "result" del objeto JSON
                     JSONArray resultArray = jsonObject.getJSONArray("result");
 
-                    // Ahora puedes acceder a los datos dentro del arreglo "result"
                     for (int i = 0; i < resultArray.length(); i++) {
                         JSONObject playerData = resultArray.getJSONObject(i);
 
-                        // Accede a los campos que necesites, por ejemplo:
                         listaJugadores.add(new Futbolista(playerData.getLong("player_key"),
                                 playerData.getString("team_name"),
                                 playerData.getInt("goals"),
@@ -64,17 +62,13 @@ public class HiloConexion extends Thread{
                 byte[] rta = c.obtenerInfo(this.ruta);
                 message.arg1 = MOSTRAR_JUGADORES_SV;
                 try {
-                    // Convierte la cadena JSON en un objeto JSONObject
                     JSONObject jsonObject = new JSONObject(new String(rta));
 
-                    // Obtén el array "result" del objeto JSON
                     JSONArray resultArray = jsonObject.getJSONArray("result");
 
-                    // Ahora puedes acceder a los datos dentro del arreglo "result"
                     for (int i = 0; i < resultArray.length(); i++) {
                         JSONObject playerData = resultArray.getJSONObject(i);
 
-                        // Accede a los campos que necesites, por ejemplo:
                         listaJugadores.add(new Futbolista(playerData.getLong("player_key"),
                                 playerData.getString("team_name"),
                                 playerData.getInt("player_goals"),
@@ -93,16 +87,14 @@ public class HiloConexion extends Thread{
                 byte[] rta = c.obtenerInfo(this.ruta);
                 message.arg1 = VER_DETALLE;
                 try {
-                    // Convierte la cadena JSON en un objeto JSONObject
+
                     JSONObject jsonObject = new JSONObject(new String(rta));
 
-                    // Obtén el array "result" del objeto JSON
+
                     JSONArray resultArray = jsonObject.getJSONArray("result");
 
-                    // Ahora puedes acceder a los datos dentro del arreglo "result"
                     JSONObject playerData = resultArray.getJSONObject(0);
 
-                    // Accede a los campos que necesites, por ejemplo:
                     modelFutbolista = new ModelFutbolista();
                     modelFutbolista.setNacionalidad(playerData.getString("player_country"));
                     modelFutbolista.setEdad(Integer.parseInt(playerData.getString("player_age")));
@@ -119,8 +111,6 @@ public class HiloConexion extends Thread{
                     modelFutbolista.setPasesAcertados(Integer.parseInt(verificarQueNoLlegueVacio(playerData.getString("player_passes_accuracy"))));
                     modelFutbolista.setRatingPromedio(Double.parseDouble(verificarQueNoLlegueVacio(playerData.getString("player_rating"))));
                     modelFutbolista.setFoto(verificarQueNoLlegueVacio(playerData.optString("player_image", "/drawable/hombre.png")));
-
-                    Log.d("viendoooooooo desde hlo", modelFutbolista.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

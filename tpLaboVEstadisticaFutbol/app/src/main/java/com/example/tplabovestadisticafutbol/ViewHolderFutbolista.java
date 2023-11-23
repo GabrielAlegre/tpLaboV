@@ -32,7 +32,6 @@ public class ViewHolderFutbolista extends RecyclerView.ViewHolder implements Vie
         /*i.putExtra("keyDelJugador", f.getKeyDelJugador());
         i.putExtra("golesConvertidos", f.getCantDeGolesConvertidos());
         i.putExtra("golesDePenales", f.getGolesDePenales());*/
-        Log.d("Ver detalleeeeeeeeeee", "onClick: Proxima funcionabilidad"+ MainActivity.listaDeJugadores.get(indiceDelJugadorClickeado).toString());
 
         view.getContext().startActivity(i);
     }
